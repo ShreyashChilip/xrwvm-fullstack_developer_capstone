@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dealerships</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fff;
+        }
+        .navbar {
+            background-color: #00c4cc;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 {
+            color: white;
+            margin: 0;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 800px;
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 2em;
+            color: #222;
+        }
+        p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+        button {
+            background-color: #4b0082;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3a006d;
+        }
+        .contact-info {
+            margin-top: 40px;
+            text-align: left;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-info h3 {
+            color: #4b0082;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Dealerships</h2>
+        <div>
+            <a >Home</a>
+            <a >About Us</a>
+            <a >Contact Us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Whether you have a question about cars, pricing, or anything else, our team is ready to answer all your questions.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Our Office</h3>
+            <p><strong>Address:</strong> 123 Auto Lane, Toronto, Canada</p>
+            <p><strong>Email:</strong> contact@bestcars.com</p>
+            <p><strong>Phone:</strong> +1 (800) 123-4567</p>
+        </div>
+    </div>
+
+</body>
+</html>
